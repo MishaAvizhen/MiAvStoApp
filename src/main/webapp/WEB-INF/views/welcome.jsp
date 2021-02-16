@@ -28,6 +28,7 @@
 
         <h2>Welcome ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a>
         </h2>
+        <span>${message}</span>
 
     </c:if>
 
