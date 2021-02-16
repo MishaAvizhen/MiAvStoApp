@@ -14,6 +14,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class RepairRequestServiceImpl implements RepairRequestService {
     @Autowired
@@ -34,7 +37,19 @@ public class RepairRequestServiceImpl implements RepairRequestService {
         User byUsername = userDao.findByUsername(user);
         repairRequest.setUser(byUsername);
 
-
         return repairRequestDao.save(repairRequest);
     }
+
+    @Transactional
+    @Override
+    public List<RepairRequest> getListAllRepairRequestOfUsers(String username) {
+        User userDaoOne = userDao.findByUsername(username);
+        List<RepairRequest> repairRequestList = new ArrayList<>();
+        List<RepairRequest> requestList = userDaoOne.getRepairRequestList();
+        for (RepairRequest repairRequest : requestList) {
+            repairRequestList.add(repairRequest);
+        }
+        return repairRequestList;
+    }
+
 }
