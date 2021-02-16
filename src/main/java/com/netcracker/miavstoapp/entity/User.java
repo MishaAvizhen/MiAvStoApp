@@ -1,6 +1,7 @@
 package com.netcracker.miavstoapp.entity;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -27,6 +28,9 @@ public class User {
     @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+
+    @OneToMany(mappedBy = "user",  cascade = {CascadeType.MERGE, CascadeType.REFRESH, CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    private List<RepairRequest> repairRequestList;
 
     public Long getId() {
         return id;
@@ -74,5 +78,13 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public List<RepairRequest> getRepairRequestList() {
+        return repairRequestList;
+    }
+
+    public void setRepairRequestList(List<RepairRequest> repairRequestList) {
+        this.repairRequestList = repairRequestList;
     }
 }

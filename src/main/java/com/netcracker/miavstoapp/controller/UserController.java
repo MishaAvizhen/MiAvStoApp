@@ -42,6 +42,7 @@ public class UserController {
         User registeredClient = userService.registerClient(userRegistrationDto);
 
         securityService.autoLogin(registeredClient.getUsername(), registeredClient.getPassword());
+        model.addAttribute("message", "User" +registeredClient.getUsername()+ " was added");
 
         return "redirect:/welcome";
     }
