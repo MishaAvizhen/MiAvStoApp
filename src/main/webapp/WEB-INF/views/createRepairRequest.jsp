@@ -30,6 +30,7 @@
 
     <form:form method="POST" modelAttribute="repairRequestForm" class="form-createRepairRequest">
         <h2 class="form-createRepairRequest-heading">Create your repair request</h2>
+        <span>${message}</span>
         <spring:bind path="dateOfRequest">
             <div class="form-group ${status.error ? 'has-error' : ''}">
                 <form:input type="date" path="dateOfRequest" class="form-control" placeholder="Date"
