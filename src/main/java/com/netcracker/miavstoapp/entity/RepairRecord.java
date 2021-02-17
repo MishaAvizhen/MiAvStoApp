@@ -1,6 +1,8 @@
 package com.netcracker.miavstoapp.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,11 +18,14 @@ public class RepairRecord {
     private String detailPrice;
     @Column(name = "work_price")
     private String workPrice;
+
+
     @Column(name = "other_notes")
     private String otherNotes;
 
     @OneToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
     @JoinColumn(name = "repair_request_id")
+    @JsonIgnore
     private RepairRequest repairRequest;
 
     public RepairRecord() {
