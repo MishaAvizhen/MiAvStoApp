@@ -47,7 +47,7 @@ public class RepairRequestController {
         }
         repairRequestService.createRepairRequest(repairRequestDto, authentication.getName());
         model.addAttribute("message", "Repair request  was added");
-        return "redirect:/welcome";
+        return "redirect:/createRepairRequest";
     }
     @RequestMapping(value = "/allUserRepairRequests", method = RequestMethod.GET)
     public ModelAndView goToAllUserRepairRequests(ModelMap model, Authentication authentication) {
