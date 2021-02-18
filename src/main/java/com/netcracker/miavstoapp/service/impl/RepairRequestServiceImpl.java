@@ -47,7 +47,9 @@ public class RepairRequestServiceImpl implements RepairRequestService {
         List<RepairRequest> repairRequestList = new ArrayList<>();
         List<RepairRequest> requestList = userDaoOne.getRepairRequestList();
         for (RepairRequest repairRequest : requestList) {
-            repairRequestList.add(repairRequest);
+            if (repairRequest.getStatus().equals(RepairRequestConstants.STATUS_IN_PROGRESS)) {
+                repairRequestList.add(repairRequest);
+            }
         }
         return repairRequestList;
     }

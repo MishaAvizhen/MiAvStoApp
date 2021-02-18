@@ -23,11 +23,8 @@ public class RepairRecordServiceImpl implements RepairRecordService {
     @Override
     public RepairRecord addRepairRecord(RepairRecordDto repairRecordDto) {
         RepairRequest repairRequest = repairRequestDao.findOne(repairRecordDto.getRepairRequestId());
-        if (repairRequest == null) {
-            throw new RuntimeException("Requested repair request not exists.");
-        }
         RepairRecord existingRepairRecord = repairRequest.getRepairRecord();
-        if (existingRepairRecord == null) {
+        if (repairRequest.getStatus().equals(RepairRequestConstants.STATUS_IN_PROGRESS) && existingRepairRecord == null) {
             RepairRecord repairRecord = new RepairRecord();
             repairRecord.setRepairRecordDescription(repairRecordDto.getRepairRecordDescription());
             repairRecord.setDetailPrice(repairRecordDto.getDetailPrice());
@@ -40,7 +37,6 @@ public class RepairRecordServiceImpl implements RepairRecordService {
         } else {
             return existingRepairRecord;
         }
-
 
     }
 

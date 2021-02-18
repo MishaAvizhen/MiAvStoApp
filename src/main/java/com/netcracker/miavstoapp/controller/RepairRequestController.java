@@ -1,10 +1,7 @@
 package com.netcracker.miavstoapp.controller;
 
 import com.netcracker.miavstoapp.dto.RepairRequestDto;
-import com.netcracker.miavstoapp.dto.UserRegistrationDto;
-import com.netcracker.miavstoapp.entity.RepairRecord;
 import com.netcracker.miavstoapp.entity.RepairRequest;
-import com.netcracker.miavstoapp.entity.User;
 import com.netcracker.miavstoapp.service.RepairRequestService;
 import com.netcracker.miavstoapp.service.SecurityService;
 import com.netcracker.miavstoapp.service.UserService;
@@ -18,7 +15,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -54,7 +50,7 @@ public class RepairRequestController {
         return "redirect:/welcome";
     }
     @RequestMapping(value = "/allUserRepairRequests", method = RequestMethod.GET)
-    public ModelAndView goToallUserRepairRequests(ModelMap model,Authentication authentication) {
+    public ModelAndView goToAllUserRepairRequests(ModelMap model, Authentication authentication) {
         org.springframework.security.core.userdetails.User user =
                 (org.springframework.security.core.userdetails.User) authentication.getPrincipal();
         String username = user.getUsername();

@@ -25,7 +25,7 @@
             <c:forEach items="${repairRequestsListOfUser}" var="repairRequest">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">All repair requests </h3>
+                        <h3 class="panel-title">All repair requests of ${pageContext.request.userPrincipal.name} </h3>
                     </div>
                     <div class="panel-body">
                         <div class="row">
@@ -37,7 +37,12 @@
                                     <a href="#" class="list-group-item active">Car:${repairRequest.carRemark}</a>
                                     <a href="#" class="list-group-item ">Status:${repairRequest.status}</a>
 
+
+
                                 </div>
+                                <a href="/addRepairRecord/${repairRequest.id}"
+                                   class="btn btn-success pull-right "
+                                   role="button">Add repair record</a>
                                 <hr>
                             </div>
                         </div>
