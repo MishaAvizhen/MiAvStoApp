@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="MiAvStoApp:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="MiAvSto.war">
+      <element id="artifact" artifact-name="MiAvStoApp:war exploded" />
+    </root>
+  </artifact>
+</component>

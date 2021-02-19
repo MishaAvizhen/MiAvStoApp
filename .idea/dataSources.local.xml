@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - avizhen_nc_sto@localhost" uuid="33b3e136-211d-4b7a-b969-1a48fb48b3e0">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>avizhen_nc_sto.*</schema-pattern>
+      <default-schemas>avizhen_nc_sto.*</default-schemas>
+    </data-source>
+  </component>
+</project>
